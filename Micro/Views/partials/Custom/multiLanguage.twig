@@ -1,0 +1,31 @@
+<li>
+    <div class="dropdown">
+        <a class="lnk dropBtn"><span class="drop_language {{ active_language }}"></span><i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-content" style="right:0;">
+            <a class="dropLnk {%if active_language == 'pt'%}active{%endif%}" href="">
+                <div class="language pt">&emsp;Portuguese </div>
+            </a>
+            <a class="dropLnk {%if active_language == 'en'%}active{%endif%}" href="">
+                <div class="language en">&emsp;English</div>
+            </a>
+            <a class="dropLnk {%if active_language == 'fr'%}active{%endif%}" href="">
+                <div class="language fr">&emsp;French</div>
+            </a>
+        </div>
+    </div>
+</li>
+
+
+
+{#<li>#}
+{#    <div class="dropdown">#}
+{#        <div class="dropbtn">#}
+{#            <div class="dropFlag en"></div>#}
+{#        </div>#}
+{#        <div class="dropdown-content">#}
+{#            <a href="" class="language pt">Portuguese</a>#}
+{#            <a href="" class="language en">English</a>#}
+{#            <a href="" class="language fr">French</a>#}
+{#        </div>#}
+{#    </div>#}
+{#</li>#}

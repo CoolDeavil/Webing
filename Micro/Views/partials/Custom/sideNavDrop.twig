@@ -1,0 +1,8 @@
+<a class="dropdown-btn {{ active }}">{{ dropdownLabel }}
+    <i class="fas fa-caret-down"></i>
+</a>
+<div class="dropdown-container">
+    {% for link in entry %}
+        <a href="{{ link.link[0] }}" class="{{ link.active }}"><i class="fas {{ link.icon }}"></i>&thinsp;{{ link.label }}</a>
+    {% endfor %}
+</div>

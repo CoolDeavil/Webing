@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>API</title>
+  <link rel="stylesheet" href="http://192.168.12.12/css/main.min.css">
+  <style>
+  </style>
+</head>
+<body>
+<form action="http://192.168.12.12/api/switchLang" method="post" id="formSwitch" style="display: none">
+  <input type="hidden" name="language" value="any">
+</form>
+<div class="appSideNavOverlay">
+  <div class="appSideNav">
+
+    <a href="/" class="active">
+      <i class="fas fa-cannabis"></i>
+      &thinsp;Home
+    </a>
+    <a href="/framework-concept" class="">
+      <i class="fas fa-cannabis"></i>
+      &thinsp;About
+    </a>
+    <a class="dropdown-btn ">Examples
+      <i class="fas fa-caret-down"></i>
+    </a>
+    <div class="dropdown-container">
+      <a href="/calendar-demo" class=""><i class="fas fa-cogs"></i>&thinsp;Calendar</a>
+      <a href="/maps-demo" class=""><i class="fas fa-user"></i>&thinsp;Google Maps</a>
+      <a href="/php-raw-form" class=""><i class="fas fa-list"></i>&thinsp;PHP Form</a>
+      <a href="/charlie-controller" class=""><i class="fas fa-list"></i>&thinsp;Map Routes</a>
+      <a href="/demos-concept" class=""><i class="fas fa-university"></i>&thinsp;Concept</a>
+      <a href="/front-end-validation" class=""><i class="fas fa-star"></i>&thinsp;Front End</a>
+      <a href="/drop-zone-demo" class=""><i class="fas fa-star"></i>&thinsp;DropZone</a>
+      <a href="/drag-area-demo" class=""><i class="fas fa-car"></i>&thinsp;DragArea</a>
+    </div>
+    <a href="/" class="active">
+      <i class="fas fa-cannabis"></i>
+      &thinsp;Home
+    </a>
+    <a href="/framework-concept" class="">
+      <i class="fas fa-cannabis"></i>
+      &thinsp;About
+    </a>
+    <a class="dropdown-btn ">Examples
+      <i class="fas fa-caret-down"></i>
+    </a>
+    <div class="dropdown-container">
+      <a href="/calendar-demo" class=""><i class="fas fa-cogs"></i>&thinsp;Calendar</a>
+      <a href="/maps-demo" class=""><i class="fas fa-user"></i>&thinsp;Google Maps</a>
+      <a href="/php-raw-form" class=""><i class="fas fa-list"></i>&thinsp;PHP Form</a>
+      <a href="/charlie-controller" class=""><i class="fas fa-list"></i>&thinsp;Map Routes</a>
+      <a href="/demos-concept" class=""><i class="fas fa-university"></i>&thinsp;Concept</a>
+      <a href="/front-end-validation" class=""><i class="fas fa-star"></i>&thinsp;Front End</a>
+      <a href="/drop-zone-demo" class=""><i class="fas fa-star"></i>&thinsp;DropZone</a>
+      <a href="/drag-area-demo" class=""><i class="fas fa-car"></i>&thinsp;DragArea</a>
+    </div>
+
+    <a href="/api/author/create" class="">
+      <i class="fas fa-user-plus"></i>
+      &thinsp;Register
+    </a>
+    <a href="/api/author" class="">
+      <i class="fas fa-sign-in-alt"></i>
+      &thinsp;Log In
+    </a>
+
+
+    <hr style="border-bottom: solid 1px whitesmoke">
+    <a class="dropdown-btn">Language
+      <i class="fas fa-caret-down"></i>
+    </a>
+    <div class="dropdown-container">
+      <a href="#"> <div class="language pt">&emsp;Portuguese</div></a>
+      <a href="#"> <div class="language en">&emsp;English</div></a>
+      <a href="#"> <div class="language fr">&emsp;Portuguese</div></a>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="cFab">&#9650;</div>
+<div class="appHero">
+  <div class="back parallax"></div>
+  <div class="logo parallax"></div>
+</div>
+<div class="appNavigation">
+  <ul class="menu">
+    <li class="disabled_">
+      <a class="">
+        <img src="http://192.168.12.12/images/webing_logo_1.png" class="navLogo" alt="">
+      </a>
+    </li>
+  </ul>
+
+  <ul class="menu">
+    <li class="active">
+      <a href="/" class="lnk">
+        <span class="label">Home&thinsp;</span>
+        <i class="fas fa-cannabis"></i>
+      </a>
+    </li><li class="">
+    <a href="/framework-concept" class="lnk">
+      <span class="label">About&thinsp;</span>
+      <i class="fas fa-cannabis"></i>
+    </a>
+  </li><li class="">
+    <div class="dropdown">
+      <a class="lnk dropBtn">Examples&thinsp;<i class="fas fa-caret-down"></i></a>
+      <div class="dropdown-content" style="left:0;">
+        <a class="dropLnk " href="/calendar-demo"><i class="fas fa-cogs"></i>&thinsp;Calendar</a>
+        <a class="dropLnk " href="/maps-demo"><i class="fas fa-user"></i>&thinsp;Google Maps</a>
+        <a class="dropLnk " href="/php-raw-form"><i class="fas fa-list"></i>&thinsp;PHP Form</a>
+        <a class="dropLnk " href="/charlie-controller"><i class="fas fa-list"></i>&thinsp;Map Routes</a>
+        <a class="dropLnk " href="/demos-concept"><i class="fas fa-university"></i>&thinsp;Concept</a>
+        <a class="dropLnk " href="/front-end-validation"><i class="fas fa-star"></i>&thinsp;Front End</a>
+        <a class="dropLnk " href="/drop-zone-demo"><i class="fas fa-star"></i>&thinsp;DropZone</a>
+        <a class="dropLnk " href="/drag-area-demo"><i class="fas fa-car"></i>&thinsp;DragArea</a>
+      </div>
+    </div>
+  </li>
+
+  </ul>
+  <ul class="menu admin">
+    <li>
+      <div class="dropdown">
+        <a class="lnk dropBtn"><span class="drop_language en"></span><i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-content" style="right:0;">
+          <a class="dropLnk " href="">
+            <div class="language pt">&emsp;Portuguese</div>
+          </a>
+          <a class="dropLnk active" href="">
+            <div class="language en">&emsp;English</div>
+          </a>
+          <a class="dropLnk " href="">
+            <div class="language fr">&emsp;French</div>
+          </a>
+        </div>
+      </div>
+    </li>
+
+    <li class="">
+      <a href="/api/author/create" class="lnk">
+        <span class="label">Register&thinsp;</span>
+        <i class="fas fa-user-plus"></i>
+      </a>
+    </li><li class="">
+    <a href="/api/author" class="lnk">
+      <span class="label">Log In&thinsp;</span>
+      <i class="fas fa-sign-in-alt"></i>
+    </a>
+  </li>
+  </ul>
+  <ul class="menu responsive">
+    <li>
+      <a class="lnk">
+        <span class="js_hamburger" style="font-size: 1.4rem">&#9776;</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="container appContent" >
+  <div class="sectionSeparator"></div>
+  <div class="title">Webing <small>Site Root</small></div>
+
+</div>
+<div class="appFooter">
+  <span>&#174;&emsp;Webing IT [production] - Friday 20 May 2022 </span>
+</div>
+<script src="http://192.168.12.12/js/main.min.js"></script>
+</body>
+</html>

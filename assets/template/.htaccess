@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    #RewriteRule ^(.*)\.js$ $1.js.gz [QSA,L]
+    #RewriteRule ^(.*)\.css$ $1.css.gz [QSA,L]
+    #RewriteRule ^(.*)\.html$ $1.html.gz [QSA,L]
+
+    #RewriteCond %{REQUEST_FILENAME}.gz -f
+
+    AddEncoding gzip gz
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php [QSA,L]
+    #RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+</IfModule>
+
+
+#AddEncoding gzip gz
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^(.*)$ index.php [QSA,L]

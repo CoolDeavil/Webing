@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ app_tittle }}</title>
+    <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+<form action="{{ asset('/api/switchLang') }}" method="post" id="formSwitch" style="display: none">
+    <input type="hidden" name="language" value="any">
+</form>
+{{ APP_SIDE_NAV | raw}}
+<div class="cFab">&#9650;</div>
+<div class="appHero">
+    <div class="back parallax"></div>
+    <div class="logo parallax"></div>
+</div>
+{{ APP_NAV | raw}}
+{% block content %}
+{% endblock content %}
+<div class="appFooter">
+    <span>&#174;&emsp;Webing IT [{{ APP_MODE}}] - {{ now }} </span>
+</div>
+<script src="{{ asset('js/main.min.js') }}"></script>
+{% block scripts %}
+{% endblock scripts %}
+</body>
+</html>
+
+
+
+
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#    <title>{{ app_tittle }}</title>#}
+{#    <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">#}
+{#    {% block head %}#}
+{#    {% endblock head %}#}
+{#</head>#}
+{#<body>#}
+{#<form action="{{ asset('/api/switchLang') }}" method="post" id="formSwitch" style="display: none">#}
+{#<form action="{{ url('Micro.switchLanguage') }}" method="post" id="formSwitch" style="display: none">#}
+{#    <input type="hidden" name="language" value="any">#}
+{#</form>#}
+{#{{ APP_SIDE_NAV | raw}}#}
+{#<section class="appHero">#}
+{#    <div class="hero-body">#}
+{#        <p class="is-size-1">#}
+{#            MicroPHP#}
+{#        </p>#}
+{#        <p class="is-size-3">#}
+{#            Raw Bones Framework#}
+{#        </p>#}
+{#    </div>#}
+{#</section>#}
+{#{{ APP_NAV | raw}}#}
+
+
+{#{% block content %}#}
+{#{% endblock content %}#}
+
+{#<footer>#}
+{#    <div class="content has-text-centered">#}
+{#        <p>#}
+{#            <strong>MicroPHP</strong> by <a href="https://jgthms.com">CoolDeavil</a>. The source code is opensource and available at#}
+{#            <a href="http://opensource.org/licenses/mit-license.php">GIT</a>#}
+{#        </p>#}
+{#    </div>#}
+{#</footer>#}
+
+
+{#<script src="{{ asset('js/main.min.js') }}"></script>#}
+{#{% block scripts %}#}
+{#{% endblock scripts %}#}
+{#</body>#}
+{#</html>#}
+

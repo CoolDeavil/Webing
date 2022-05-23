@@ -1,0 +1,63 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+        .circle {
+            width: 250px;
+            height: 250px;
+            background: url({{asset('images/Onion.png')}});
+            background-size: cover;
+            float: left;
+            shape-outside: circle();
+            margin: 40px 20px 20px 0;
+        }
+        .wrapper a {
+            color: orangered;
+            text-decoration: none;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container appContent">
+        <div class="sectionSeparator"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <h5 class="title">{{ trans('PRESENTATION_TITTLE') }} <small>{{  trans('PRESENTATION_SUBTITLE') }}</small></h5>
+            </div>
+        </div>
+        <div class="sectionSeparator"></div>
+        <div class="row">
+            <div class="col-12">
+                <a href="">
+                    <div class="circle"></div>
+                </a>
+
+
+                <p>{{ trans('PRESENTATION') }}</p>
+            </div>
+        </div>
+{#        <div class="wrapper">#}
+{#            <div class="row">#}
+{#                <div class="col-12">#}
+{#                    <h2 class="text-center">The Onion Concept</h2>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-6">#}
+{#                    <a href="">#}
+{#                        <div class="circle"></div>#}
+{#                    </a>#}
+{#                    <p>Lorem ipsum dolor sit amet, consectetur  adipisicing elit. Delectus nulla placeat unde velit voluptate. Accusamus animi quos soluta tempore ut voluptas.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus nulla placeat unde velit voluptate. Accusamus animi aspernatur esse in itaque laboriosam mollitia neque, officia quaerat quos soluta tempore ut voluptas.</p>#}
+{#                </div>#}
+{#                <div class="col-6">#}
+{#                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus nulla placeat unde velit voluptate. Accusamus animi aspernatur esse in itaque laboriosam mollitia neque, officia quaerat quos soluta tempore ut voluptas.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus nulla placeat unde velit voluptate. Accusamus animi aspernatur esse in itaque laboriosam mollitia neque, officia quaerat quos soluta tempore ut voluptas.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

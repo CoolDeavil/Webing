@@ -1,0 +1,8 @@
+.idea
+.vscode
+.vagrant/
+Vagrantfile
+node_modules/
+node_modules
+vendor/
+public/

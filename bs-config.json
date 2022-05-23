@@ -1,0 +1,5 @@
+{
+  "port": 8000,
+  "files": ["./assets/**/*.{html,htm,css,ts}"],
+  "server": { "baseDir": "./public" }
+}

@@ -1,0 +1,36 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+        .circle {
+            width: 250px;
+            height: 250px;
+            background: url({{asset('images/default_avatar.png')}});
+            background-size: cover;
+            float: left;
+            shape-outside: circle();
+            margin: 40px 20px 20px 0;
+        }
+        .wrapper a {
+            color: orangered;
+            text-decoration: none;
+        }
+        .card {
+            border: none!important;
+
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container appContent">
+        <div class="sectionSeparator"></div>
+        {{ banners | raw }}
+        <div class="sectionSeparator"></div>
+        <div class="sectionSeparator"></div>
+        <div class="sectionSeparator"></div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

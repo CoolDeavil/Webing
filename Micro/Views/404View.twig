@@ -1,0 +1,22 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+   </style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">Error404 <small>You request was not found</small></div>
+        <hr>
+        Failed URL: <strong>{{ ip }}</strong>
+        <hr>
+        <img src="{{ asset('images/404.jpg') }}"  class="img-fluid" alt="">
+{#        <img Micro="{{ asset('images/404-error.jpg') }}" class="img-fluid" alt="">#}
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{#    <script Micro="{{ asset('js/error404.min.js') }}"></script>#}
+{% endblock scripts %}
+

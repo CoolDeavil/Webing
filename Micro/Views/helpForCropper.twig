@@ -1,0 +1,77 @@
+{% extends 'layout/master.twig' %}
+{% block head %}
+    <style>
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <div class="container appContent" >
+        <div class="sectionSeparator"></div>
+        <div class="title">HTTP POST<small>Lets save somme nice code</small></div>
+        <hr>
+
+
+        <form action="{{ url('authUserService.avatarCrop') }}" method="post">
+
+
+            <input type="file" name="image[]">
+
+            <label> Top
+                <input type="text" name="top">
+            </label>
+
+            <label> Left
+                <input type="text" name="left">
+            </label>
+
+            <label> Width
+                <input type="text" name="width">
+            </label>
+
+            <label> Height
+                <input type="text" name="height">
+            </label>
+            <br>
+            <input type="submit">
+
+        </form>
+
+
+        <hr>
+
+        <!-- O tipo de encoding de dados, enctype, DEVE ser especificado abaixo -->
+        <form enctype="multipart/form-data" action="{{ url('authUserService.avatarCrop') }}" method="POST">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+            <input name="image" type="file" />
+            <label> Top
+                <input type="text" name="top">
+            </label>
+
+            <label> Left
+                <input type="text" name="left">
+            </label>
+
+            <label> Width
+                <input type="text" name="width">
+            </label>
+
+            <label> Height
+                <input type="text" name="height">
+            </label>
+            <br>
+            <input type="submit" value="Send" />
+        </form>
+
+{#        cropData.append('image',this.selectedImage);#}
+{#        cropData.append('top',position.y);#}
+{#        cropData.append('left',position.x);#}
+{#        cropData.append('width','250');#}
+{#        cropData.append('height', '250');#}
+
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    {#    <script Micro="{{ asset('js/error404.min.js') }}"></script>#}
+{% endblock scripts %}
+

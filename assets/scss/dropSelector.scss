@@ -1,0 +1,255 @@
+.dropdownSelect {
+  *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  .tagWrapper {
+    //border: solid 1px black;
+    background-color: whitesmoke;
+    min-height: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    justify-content: flex-start;
+    padding: 3px;
+    &::after {
+      content: "";
+      flex: auto;
+    }
+    div.tag {
+      margin: 1px;
+      white-space: nowrap;
+      background-color: transparent;
+      color: black;
+      font-weight: bold;
+      font-size: 0.8rem;
+      border: solid 1px #000000;
+      padding: 2px;
+      border-radius: 3px;
+      
+      
+      .fa.fa-times {
+        color: red;
+        font-size: 0.8rem;
+        &:hover {
+         color: green;
+        }
+      }
+      &.prompt {
+        width: 90%;
+        .fa.fa-times {
+          display: none;
+        }
+
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: antiquewhite;
+        font-weight: bolder;
+      }
+    };
+
+    div.tagNeedle {
+     
+      input[type="text"] {
+        width: 1px;
+        padding: 2px;
+        background-color: transparent;
+        color: transparent;
+        border: none;
+      }
+    }
+
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 2px;
+    background-color: transparent;
+
+    &.needleMultiple {
+      //float: left;
+      border: none;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  div.contents {
+    //pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+    display: none;
+    opacity: 0;
+    background-color: rgba(255,255,255,0.9);
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+    &.show {
+      display: block;
+      opacity: 1;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        width: 100%;
+        padding: 5px 5px 5px 5px;
+        font-size: 0.8rem;
+
+        //&:hover {
+        //  background-color: darkgrey;
+        //  color: antiquewhite;
+        //  font-weight: bold;
+        //  cursor: pointer;
+        //}
+        &.hovered {
+          background-color: darkgrey;
+          color: antiquewhite;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        &.spaced {
+          background-color: pink;
+          color: black;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+
+        span {
+          pointer-events: none;
+        }
+        &.noImage {
+          margin-left: 35px;
+        }
+
+        &.selected {
+          background-color: orange;
+          &:hover {
+            background-color: darkcyan;
+            color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+  img.icon {
+    float: left;;
+    height: 20px;
+    width: 30px;
+    pointer-events: none;
+    /*
+    border-radius: 100%;
+    */
+  }
+
+  div.dropToggle {
+    position: absolute;
+    right: 4px;
+    top: 5px;
+    color: #000000;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+
+    background-image: url(../images/carret_down_green.png);
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.opened {
+      transform: rotate(180deg);
+    }
+    &:hover {
+      opacity: 1;
+      cursor: pointer!important;
+    }
+
+  }
+
+}
+
+
+
+
+
+.dropWrapper {
+  width: 100%;
+}
+.offView {
+  display: none;
+}
+
+
+
+
+
+
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  /*
+  Nope =(
+  margin-left: -25%;
+  margin-top: -25%;
+  */
+
+  /*
+  Yep!
+  */
+  transform: translate(-50%, -50%);
+
+  /*
+  Not even necessary really.
+  e.g. Height could be left out!
+  */
+  width: 40%;
+  height: 50%;
+}
+
+.box {
+  //display: none;
+  position: absolute;
+  z-index: 9999;
+  width: 500px;
+  height: 250px;
+  color: black;
+  background-color: whitesmoke;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  
+  &:hover {
+    cursor: crosshair;
+  }
+
+  .dragContent {
+    position: relative;
+    top: 50px;
+    background-color: #8b8b8b;
+    color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    &:hover{
+      cursor: text;
+    }
+  }
+}
