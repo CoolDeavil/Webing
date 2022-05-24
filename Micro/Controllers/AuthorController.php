@@ -91,9 +91,6 @@ class AuthorController extends Controller implements ResourceInterface
 
     public function index(ServerRequestInterface $request, ResponseInterface $response): Response
     {
-
-
-
         $template = (string)$this->builder->buildLogIn();
         $data = $this->resolveRedirectData([
             'oldData',
@@ -110,8 +107,6 @@ class AuthorController extends Controller implements ResourceInterface
         $data['pageCSS'] = 'css/authLog.min.css';
         $data['formTemplate'] = $template;
         $data['isLogIn'] = true;
-
-
         $view = (string)$this->render->render("Auth/authForm", $data);
         $response->getBody()->write($view);
         /**@var $response Response */
@@ -119,21 +114,13 @@ class AuthorController extends Controller implements ResourceInterface
     }
 
     /**
-     * @throws ImagickExceptionAlias
-     * @throws ImagickDrawException
      */
     public function create(ServerRequestInterface $request, ResponseInterface $response): Response
     {
-        $captcha = CaptchaGen::moreHumanTest();
+        $captcha = CaptchaGen::generate();
         $data['captcha'] = $captcha->image;
-
-//        $register= $this->builder->buildRegister([$data]);
-//        $response->getBody()->write((string)$register);
-
-
         $view = (string)$this->render->render('Auth/register', $data);
         $response->getBody()->write((string)$view);
-
         return $response;
     }
 
@@ -608,66 +595,18 @@ class AuthorController extends Controller implements ResourceInterface
         return $response;
     }
     /**
-     * @throws ImagickExceptionAlias
      */
     public function avatarCrop(ServerRequestInterface $request, ResponseInterface $response): Response
     {
-
-//        die('avatarCrop');
-
-
-
-//        $response->getBody()->write(json_encode([
-//            "result" => "FAIL",
-//            "Error" => 'No Files on Request'
-//        ]));
-//        return $response
-//            ->withStatus(200)
-//            ->withHeader('Content-Type', 'application/json');
-
-
-
-
-
         if (!isset($_FILES['image']['error']) || is_array($_FILES['image']['error'])) {
-
-
-
-            $response->getBody()->write(json_encode([
-                "result" => "FAIL",
-                "Error" => 'No Files on Request'
-            ]));
-            return $response
-                ->withStatus(200)
-                ->withHeader('Content-Type', 'application/json');
-
-
-
-//            throw new RuntimeException('No Files On Request.');
+            throw new RuntimeException('No Files On Request.');
         }
-
-
-//        $response->getBody()->write(json_encode([
-//            "result" => "SUCCESS",
-//            "Error" => 'File On Request,But problem ahead....'
-//        ]));
-//        return $response
-//            ->withStatus(200)
-//            ->withHeader('Content-Type', 'application/json');
-
-
-
-
-        
         $output = imagecreatefromjpeg($_FILES['image']['tmp_name']);
         $left = $request->getParsedBody()["left"];
         $top = $request->getParsedBody()["top"];
         $width = $request->getParsedBody()["width"];
         $height = $request->getParsedBody()["height"];
-
-
         $newAvatar = imagecreatetruecolor($width, $height);
-
         try {
             $source_copy_result = imagecopy($newAvatar, $output, 0, 0, $left, $top, $width, $height);
             if (!$source_copy_result) {
@@ -687,32 +626,32 @@ class AuthorController extends Controller implements ResourceInterface
         $buffer = ob_get_clean();
         ob_end_clean();
 
-        $src1 = null;
-        try {
-            $src1 = new \Imagick();
-        } catch (ImagickExceptionAlias $e) {
-        }
-        try {
-            $src1->readImageBlob($buffer);
-        } catch (ImagickExceptionAlias $e) {
-        }
-        $src2 = null;
-        try {
-            $src2 = new Imagick(AVATAR_FILTER_PATH);
-        } catch (ImagickExceptionAlias $e) {
-            die("Cant read MASK_IMAGE");
-        }
-        $src1->compositeImage($src2, Imagick::COMPOSITE_COPYOPACITY, 0, 0);
-        $src1->setImageFormat('png');
-
-        $imgBuff = $src1->getimageblob();
-        $dataUri = "data:image/png;base64," . base64_encode($imgBuff);
-
-        unset($output);
-        unset($newAvatar);
-        unset($contents);
-        $src1->clear();
-        $src2->clear();
+//        $src1 = null;
+//        try {
+//            $src1 = new \Imagick();
+//        } catch (ImagickExceptionAlias $e) {
+//        }
+//        try {
+//            $src1->readImageBlob($buffer);
+//        } catch (ImagickExceptionAlias $e) {
+//        }
+//        $src2 = null;
+//        try {
+//            $src2 = new Imagick(AVATAR_FILTER_PATH);
+//        } catch (ImagickExceptionAlias $e) {
+//            die("Cant read MASK_IMAGE");
+//        }
+//        $src1->compositeImage($src2, Imagick::COMPOSITE_COPYOPACITY, 0, 0);
+//        $src1->setImageFormat('png');
+//
+//        $imgBuff = $src1->getimageblob();
+        $dataUri = "data:image/png;base64," . base64_encode($buffer);
+//
+//        unset($output);
+//        unset($newAvatar);
+//        unset($contents);
+//        $src1->clear();
+//        $src2->clear();
 
         $response = new Response();
         $response->getBody()->write(json_encode([
@@ -757,7 +696,7 @@ class AuthorController extends Controller implements ResourceInterface
     }
     public function resetCaptcha(): Response
     {
-        $captcha = CaptchaGen::moreHumanTest();
+        $captcha = CaptchaGen::generate();
         $response = new Response();
         $response->getBody()->write(json_encode(['image' => $captcha->image]));
         return $response;

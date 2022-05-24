@@ -45,7 +45,7 @@ class Session implements SessionInterface
 
             Logger::log(sprintf('[@] SESSION STARTED: Lang [ %s ] at [ %s ]', self::get('ACTIVE_LANG'), time()));
         }
-        Logger::log('SESSION RUNNING..... ' );
+//        Logger::log('SESSION RUNNING..... ' );
     }
 
 

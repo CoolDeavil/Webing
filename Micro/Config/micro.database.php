@@ -11,7 +11,7 @@ const DB_TYPE = 'sqlite';
 # Credentials
 ########################
 const DB_HOST = 'localhost';
-const DB_NAME = 'DataCenter';
+const DB_NAME = 'freshData';
 const DB_USER = 'root';
 const DB_PASS = 'ironMan1099';
 const PATH_TO_SQLITE_FILE = APP_ROOT . 'Database' . DIRECTORY_SEPARATOR . DB_NAME .".db3";

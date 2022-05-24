@@ -25,11 +25,6 @@ use API\Interfaces\{
 use API\Middleware\{AuthorMiddleware,
     CORSHandler,
     LastIntent,
-    PipedMiddleware1,
-    PipedMiddleware2,
-    PipedMiddleware3,
-    RoutePrivate,
-    SecureRouteMiddleware,
     TrailingSlash};
 
 

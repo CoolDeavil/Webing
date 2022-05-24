@@ -20,7 +20,6 @@ class AuthorMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        Logger::log('AuthorMiddleware PIPED');
         return $handler->handle($request);
     }
 }

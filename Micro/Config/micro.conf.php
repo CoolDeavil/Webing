@@ -37,9 +37,11 @@ define('DEF_AVATAR_PATH', realpath('..'.DIRECTORY_SEPARATOR.'public').DIRECTORY_
 
 define('AVATAR_FILTER_PATH', realpath('../').DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'circle_avatar_mask.png');
 
-###################################
-#  UI Navigation Links
-###################################
+
+const CAPTCHA_FONT = './fonts/AnonymousClippings.ttf';
+//const CAPTCHA_FONT = './fonts/HandelGothic.ttf';
+//const CAPTCHA_FONT = './fonts/Helvetica400.ttf';
+
 //const BASE_CSS_TEMPLATES = 'Bulma';
 const BASE_CSS_TEMPLATES = 'Custom';
 const ACTIVE_NAV_LINK_CLASS = 'active';

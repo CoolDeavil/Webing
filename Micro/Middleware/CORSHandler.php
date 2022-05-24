@@ -32,8 +32,6 @@ class CORSHandler  implements MiddlewareInterface
             header('Access-Control-Allow-Credentials: true');
             header('Access-Control-Max-Age: 86400');    // cache for 1 day
 
-            Logger::log('CORS OK: ' . $_SERVER['HTTP_ORIGIN'] );
-
         }
         // Access-Control headers are received during OPTIONS requests
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
