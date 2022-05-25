@@ -9,8 +9,7 @@
     "build": "webpack --mode=development",
     "release": "webpack --mode=production",
     "serve": "php -S localhost:8000 -d display_errors=1 -t public/",
-    "servePHP": "php -S localhost:3000 -d display_errors=1 -t server/",
-    "lunch": "http-server -p 3030 --proxy http://localhost:3000?"
+    "servePHP": "php -S localhost:8000 -d display_errors=1 -t server/"
   },
   "keywords": [],
   "author": "",

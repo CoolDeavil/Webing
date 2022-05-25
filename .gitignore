@@ -8,3 +8,5 @@ vendor/
 public/
 composer.lock
 package-lock.json
+Micro/logs/microLog.log
+

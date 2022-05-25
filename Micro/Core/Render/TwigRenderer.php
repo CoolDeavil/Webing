@@ -13,6 +13,7 @@ use API\Interfaces\ContainerInterface;
 use API\Interfaces\RenderInterface;
 use API\Core\Session\Session;
 use API\Models\AppUser;
+use IntlDateFormatter;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -22,11 +23,9 @@ use Twig\Loader\FilesystemLoader;
 class TwigRenderer implements RenderInterface
 {
 
-    private $path = '';
-    private $loader;
+    private string $path = '';
+    private FilesystemLoader $loader;
     private Environment $twig;
-//    /**@var MRouter */
-//    private $router;
     private ContainerInterface $ioc;
 
     public function __construct(FilesystemLoader $loader, Environment $twig, ContainerInterface $ioc)
@@ -34,7 +33,6 @@ class TwigRenderer implements RenderInterface
         $this->path = APP_VIEWS;
         $this->loader = $loader;
         $this->twig = $twig;
-//        $this->router = DIContainer::getInstance()->get(RouterInterface::class);
         $this->setGlobals();
         $this->ioc = $ioc;
     }
@@ -43,14 +41,6 @@ class TwigRenderer implements RenderInterface
         $this->twig->addGlobal($key, $value);
     }
     private function setGlobals(){
-//        $flag=null;
-//        if (Session::get('ACTIVE_LANG')) {
-//            $this->addGlobal('app_lang', Session::get('ACTIVE_LANG'));
-//            $flag = Session::get('ACTIVE_LANG').'.png';
-//        } else {
-//            $this->addGlobal('app_lang', APP_LANG);
-//            $flag = APP_LANG.'.png';
-//        }
         $this->addGlobal('NAVBAR_PARTIALS', 'partials'.DIRECTORY_SEPARATOR.BASE_CSS_TEMPLATES);
         $this->addGlobal('cur_page',parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     }
@@ -61,11 +51,9 @@ class TwigRenderer implements RenderInterface
     {
         setlocale(LC_ALL, Session::get('LOCALE'));
         $params['app_tittle']= APP_TITTLE;
-        $params['now']= utf8_encode(strftime("%A %e %B %Y"));
+        $params['now']= utf8_encode($this->footDate(Session::get('ACTIVE_LANG')));
         $params['APP_MODE']=BUILD_RELEASE?'production':'development';
         $template=null;
-
-
         $user = new AppUser();
         if(Session::get('loggedIn')){
             $user  = Session::loggedUser();
@@ -80,12 +68,9 @@ class TwigRenderer implements RenderInterface
             if(RENDER_SIDE_NAV){
                 $params['APP_SIDE_NAV']= $nav->render(1);
             }
-//            die('JIT');
-
         } else {
             $params['APP_NAV'] = "<div class='appNavigation'></div>";
         }
-
         try {
             $template = $this->twig->load((string)$view . '.twig');
         } catch (LoaderError | RuntimeError | SyntaxError $e) {
@@ -94,10 +79,6 @@ class TwigRenderer implements RenderInterface
     }
     public function template($templateName, $params = []): string
     {
-
-//        dump($templateName);
-//        return '';
-
         $template=null;
         try {
             $template = $this->twig->load('partials/' . $templateName . '.twig');
@@ -114,6 +95,16 @@ class TwigRenderer implements RenderInterface
         }
         return $template->render($params);
 
+    }
+    function footDate(string $locale): string
+    {
+        return datefmt_create(
+            $locale,
+            IntlDateFormatter::LONG,
+            IntlDateFormatter::NONE,
+            date_default_timezone_get(),
+            IntlDateFormatter::GREGORIAN
+        )->format(time());
     }
 
 }
