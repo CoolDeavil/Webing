@@ -1,9 +1,9 @@
 
-const entries = require('./wconfig/webpack.entries.js')
-const output = require('./wconfig/webpack.output.js')
-const plugIns = require('./wconfig/webpack.plugins.js')
-const rules = require('./wconfig/webpack.rules.js')
-const optimize = require('./wconfig/webpack.optimize.js')
+const entries = require('./build/webpack.entries.js')
+const output = require('./build/webpack.output.js')
+const plugIns = require('./build/webpack.plugins.js')
+const rules = require('./build/webpack.rules.js')
+const optimize = require('./build/webpack.optimize.js')
 
 let config = {
     entry: entries.baseCode(),
