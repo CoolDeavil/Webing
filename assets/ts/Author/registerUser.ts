@@ -1,4 +1,4 @@
-import FormRules from '../Classes/formRules'
+import FormValidate from '../Classes/formValidate'
 import IFormField from "../Interfaces/iFormField";
 import ICustomElement from "../Interfaces/iCustomElement";
 import IValidateResult from "../Interfaces/iValidateResult";
@@ -95,14 +95,14 @@ let watchFields: IFormField[] =  [
     },
 ]
 
-let mForm : FormRules;
+let mForm : FormValidate;
 let dropSelect: SelectBOX;
 
 export function main() {
 
     console.log("[@@] Preparing Form class parameters");
 
-    mForm = new FormRules({
+    mForm = new FormValidate({
         form: 'trialForm',
         fields: watchFields
     });
@@ -130,7 +130,7 @@ function noAdminAllowed(field : ICustomElement) : IValidateResult {
         message: "The word ADMIN is not allowed in the user name"
     };
 }
-function resetCaptcha(form: FormRules){
+function resetCaptcha(form: FormValidate){
 
     console.log("Resetting Captcha");
     

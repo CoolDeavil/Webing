@@ -22,21 +22,18 @@ class LastIntent implements MiddlewareInterface
     }
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-
         $regex = "#^/api/#";
         if( preg_match($regex, $url = (string) $request->getUri()->getPath())){
             return $handler->handle($request);
         }
-
         $requestMethod = $request->getMethod();
         $url = (string) $request->getUri()->getPath();
         if(!isset(pathinfo($url)['extension']) && $requestMethod === 'GET'){
             if(!in_array($url, $this->ignored)){
                 Session::set('LAST_INTENT',$url);
-                Logger::log('LAST_INTENT ->' . $url);
+//                Logger::log('LAST_INTENT ->' . $url);
             }
         }
-
         return $handler->handle($request);
     }
 }

@@ -21,12 +21,9 @@ exports.buildPlugs = () => {
         //     minify: false,
         // }),
 
-        new BrowserSyncPlugin(
-            {
-                // proxy: 'http://application.org/',
-                proxy: '192.168.18.18',
-                // host: 'application.org',
-                host: '192.168.18.18',
+        new BrowserSyncPlugin({
+                proxy: 'http://192.168.10.15',
+                host: '192.168.10.15',
                 port: 3000,
                 open: false,
                 files: [
@@ -49,6 +46,8 @@ exports.buildPlugs = () => {
                 reload: true,
                 //reload: false
             }),
+
+
         new CopyPlugin({
             patterns:[
                 {from: './assets/template/map.php', to: path.resolve(__dirname,'../public') },

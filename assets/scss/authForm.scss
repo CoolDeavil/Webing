@@ -1,8 +1,4 @@
 
-.logos {
-  height: 16px;
-  width: auto;
-}
 small {
   font-size: 0.6rem;
   font-weight: bolder;
@@ -35,16 +31,31 @@ legend
 {
   width: auto;
 }
-#registerForm {
-  font-size: 0.7rem;
-  padding: 25px;
-  border-radius: 5px;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
-  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-}
-.captcha {
-  height: 90px;
-  width: auto;
-}
+form {
+  border-radius: 12px;
+  padding: 20px;
+  -moz-box-shadow: 0 0 12px #999;
+  -webkit-box-shadow: 0 0 12px #999;
+  box-shadow: 0 0 12px #999;
+  label {
+    font-size: 0.8rem;
+  }
 
+  .formHR {
+    border-bottom: 2px solid darkcyan
+  }
+}
+.publicHazard{
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+  background-color: #000000;
+  color: antiquewhite;
+  font-weight: bold;
+  font-size: 0.8rem;
+  span  {
+    color: #d41010;
+    font-size: 0.9rem;
+    font-weight: bolder;
+  }
+}

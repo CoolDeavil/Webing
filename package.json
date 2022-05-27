@@ -9,7 +9,7 @@
     "build": "webpack --mode=development",
     "release": "webpack --mode=production",
     "serve": "php -S localhost:8000 -d display_errors=1 -t public/",
-    "servePHP": "php -S localhost:8000 -d display_errors=1 -t server/"
+    "servePHP": "php -S 192.168.10.15:5000 -d display_errors=1 -t server/"
   },
   "keywords": [],
   "author": "",

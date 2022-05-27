@@ -1,12 +1,14 @@
-import FormRules from "../Classes/formRules";
-let form : FormRules;
+import FormValidate from "../Classes/formValidate";
+
+
+let form : FormValidate;
 let errorMessages = {
         email :['Required Field.','invalid email address'],
         pass : ['The password is required.',"Min of 8 chars and max of 16","Secure pass is required"]
 }
 
 export function main(){
-    form = new FormRules({
+    form = new FormValidate({
         form: 'logInForm',
         fields: [
             {

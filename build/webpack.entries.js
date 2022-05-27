@@ -15,8 +15,10 @@ exports.baseCode = () => {
         ],
         usrRegister :[
             './assets/ts/Author/registerUser',
-            './assets/scss/formValidation.scss',
-            './assets/scss/dropSelector.scss',
+            './assets/scss/dropSelector',
+            './assets/scss/formValidation',
+            './assets/scss/authForm',
+
         ],
         usrDash :[
             './assets/ts/Author/dashboard',

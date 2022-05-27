@@ -1,3 +1,12 @@
+
+@font-face {
+  font-family: Captcha;
+  src: url("../fonts/AnonymousClippings.ttf");
+}
+
+
+
+
 .dropdownSelect {
   *:before, *:after {
     box-sizing: inherit;
@@ -184,72 +193,28 @@
 }
 
 
-
-
-
 .dropWrapper {
   width: 100%;
 }
+
 .offView {
   display: none;
 }
 
 
-
-
-
-
-
-.center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  /*
-  Nope =(
-  margin-left: -25%;
-  margin-top: -25%;
-  */
-
-  /*
-  Yep!
-  */
-  transform: translate(-50%, -50%);
-
-  /*
-  Not even necessary really.
-  e.g. Height could be left out!
-  */
-  width: 40%;
-  height: 50%;
+.pfFlag {
+  content: url("../images/placeholder.png");
 }
 
-.box {
-  //display: none;
-  position: absolute;
-  z-index: 9999;
-  width: 500px;
-  height: 250px;
-  color: black;
-  background-color: whitesmoke;
-  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  
-  &:hover {
-    cursor: crosshair;
-  }
-
-  .dragContent {
-    position: relative;
-    top: 50px;
-    background-color: #8b8b8b;
-    color: antiquewhite;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    &:hover{
-      cursor: text;
-    }
-  }
+.pfFlag {
+  content: url("../images/pt.png");
 }
+
+.enFlag {
+  content: url("../images/en.png");
+}
+
+.frFlag {
+  content: url("../images/fr.png");
+}
+

@@ -23,7 +23,8 @@
     "ext-intl": "*",
     "ext-imagick": "*",
     "ext-gd": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-fileinfo": "*"
   },
   "require-dev": {
     "symfony/var-dumper": "^5.3"

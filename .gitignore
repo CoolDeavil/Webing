@@ -6,6 +6,7 @@ node_modules/
 node_modules
 vendor/
 public/
+server/
 composer.lock
 package-lock.json
 Micro/logs/microLog.log
